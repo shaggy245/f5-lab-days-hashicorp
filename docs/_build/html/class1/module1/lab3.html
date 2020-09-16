@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>2.1.1.3. Lab 3 - HTTP to HTTPS Redirect (EXAMPLE)</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="2.1.1.3. Lab 3 - HTTP to HTTPS Redirect (EXAMPLE)"/>
+  <meta name="product" content="F5 and Hashicorp Basics"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2020-09-16 08:33:09"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 and Hashicorp Basics" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2.1.1.3. Lab 3 - HTTP to HTTPS Redirect (EXAMPLE) &#8212; F5 and Hashicorp Basics  documentation</title>
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/f5_agility_theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/f5.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/f5-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/CoveoFullSearch.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/21fb8a09c3.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="2.1.1.2. Lab 2 - Log and Change Headers (EXAMPLE)" href="lab2.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 and Hashicorp Basics  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class Title</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../class1.html#lab-components">2.1. Lab Components</a></li>
+</ul>
+</li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">2.1.1.3. Lab 3 - HTTP to HTTPS Redirect (EXAMPLE)</a></li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 and Hashicorp Basics</a>
+              &gt; <a href="../class1.html">2. Class Title</a>
+              &gt; <a href="module1.html">2.1.1. Module 1 Title</a>
+
+          <span class="right">
+             <a href="../../_sources/class1/module1/lab3.rst.txt" rel="nofollow">Source</a> |
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-3-http-to-https-redirect-example">
+<h1>2.1.1.3. Lab 3 - HTTP to HTTPS Redirect (EXAMPLE)<a class="headerlink" href="#lab-3-http-to-https-redirect-example" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>Create an iRule to redirect all traffic that arrives at an HTTP virtual server to be redirected to the same IP address but using an HTTPS port.</li>
+<li>The full original HTTP request should be maintained when re-directing.  Example <a class="reference external" href="http://my.domain.com/app1/index1.html">http://my.domain.com/app1/index1.html</a> should redirect to <a class="reference external" href="https://my.domain.com/app1/inex.html">https://my.domain.com/app1/inex.html</a></li>
+<li>Traffic goes to the HTTPS virtual server should still perform the pool selection and should still perform the header stripping from previous labs.</li>
+</ol>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Estimated completion time: 20 minutes</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Open Chrome Browser</p>
+</li>
+<li><p class="first">Enter <a class="reference external" href="https://bigip1">https://bigip1</a> into the address bar and hit Enter</p>
+<a class="reference internal image-reference" href="../../_images/bigip_login.png"><img alt="../../_images/bigip_login.png" src="../../_images/bigip_login.png" style="width: 800px;" /></a>
+</li>
+<li><dl class="first docutils">
+<dt>Login with <strong>username</strong>: <strong>admin</strong></dt>
+<dd><p class="first last"><strong>password</strong>: <strong>admin.F5demo.com</strong></p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Click Local Traffic -&gt; iRules  -&gt; iRules List</p>
+</li>
+<li><p class="first">Click <strong>Create</strong> button</p>
+<a class="reference internal image-reference" href="../../_images/irule_create.png"><img alt="../../_images/irule_create.png" src="../../_images/irule_create.png" style="width: 800px;" /></a>
+</li>
+<li><p class="first">Enter Name of <strong>HTTP_to_HTTPS_iRule</strong></p>
+</li>
+<li><p class="first">Enter Your Code</p>
+</li>
+<li><p class="first">Click <strong>Finished</strong></p>
+</li>
+<li><p class="first">Click Local Traffic -&gt; Virtual Servers -&gt; Virtual Server List</p>
+</li>
+<li><p class="first">Click on <strong>http_irules_vip</strong></p>
+<a class="reference internal image-reference" href="../../_images/select_vs.png"><img alt="../../_images/select_vs.png" src="../../_images/select_vs.png" style="width: 800px;" /></a>
+</li>
+<li><p class="first">Click on the <strong>Resources</strong> tab.</p>
+</li>
+<li><p class="first">Click <strong>Manage</strong> button for the iRules section.</p>
+<a class="reference internal image-reference" href="../../_images/resources.png"><img alt="../../_images/resources.png" src="../../_images/resources.png" style="width: 800px;" /></a>
+</li>
+<li><p class="first">Click on HTTP_to_HTTPS_iRule from the Available box and click the &lt;&lt; button, thus moving it to the Enabled box, your first, second, and now third iRule’s should be in the Enabled box.</p>
+<a class="reference internal image-reference" href="../../_images/lab3-irules-add.png"><img alt="../../_images/lab3-irules-add.png" src="../../_images/lab3-irules-add.png" style="width: 800px;" /></a>
+</li>
+<li><p class="first">Click the <strong>Finished</strong> button.</p>
+</li>
+<li><p class="first">Click Local Traffic -&gt; Virtual Servers -&gt; Virtual Server List.</p>
+</li>
+<li><p class="first">Click on <strong>https_irules_vip</strong></p>
+<a class="reference internal image-reference" href="../../_images/select_vs_https.png"><img alt="../../_images/select_vs_https.png" src="../../_images/select_vs_https.png" style="width: 800px;" /></a>
+</li>
+<li><p class="first">Click on the <strong>Resources</strong> tab</p>
+</li>
+<li><p class="first">Click <strong>Manage</strong> button for the iRules section</p>
+<a class="reference internal image-reference" href="../../_images/resources.png"><img alt="../../_images/resources.png" src="../../_images/resources.png" style="width: 800px;" /></a>
+</li>
+<li><p class="first">Click on the <strong>2 iRules</strong> you require to enable <strong>pool selection and Server header removal</strong> from the previous labs from the Available box and click the &lt;&lt; button, thus moving them to the Enabled box.</p>
+<a class="reference internal image-reference" href="../../_images/lab3-irules-add-https.png"><img alt="../../_images/lab3-irules-add-https.png" src="../../_images/lab3-irules-add-https.png" style="width: 800px;" /></a>
+</li>
+<li><p class="first">Enter <a class="reference external" href="http://dvwa.f5lab.com/">http://dvwa.f5lab.com/</a> and ensure you get redirected to the HTTPS virtual server.</p>
+</li>
+<li><p class="first">Now enter <a class="reference external" href="http://wackopicko.f5lab.com/">http://wackopicko.f5lab.com/</a> and ensure you get redirected to the HTTPS virtual server.</p>
+</li>
+<li><p class="first">Finally, enter <a class="reference external" href="http://peruggia.f5lab.com/">http://peruggia.f5lab.com/</a> ensure you get redirected to the HTTPS virtual server.</p>
+<a class="reference internal image-reference" href="../../_images/lab3_verify.png"><img alt="../../_images/lab3_verify.png" src="../../_images/lab3_verify.png" style="width: 800px;" /></a>
+</li>
+<li><p class="first">From the previous lab the next two tests should confirm everything is working as before, but using HTTPS.</p>
+</li>
+<li><p class="first">Look at the headers for each of your requests. Did you log them all? What is the value of the Server header?</p>
+<a class="reference internal image-reference" href="../../_images/lab2_verify-remove.png"><img alt="../../_images/lab2_verify-remove.png" src="../../_images/lab2_verify-remove.png" style="width: 800px;" /></a>
+</li>
+</ol>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>OPTIONAL:  Instead of removing the <strong>Server</strong> header in the response, change the value of the <strong>Server</strong> header to <strong>Microsoft-IIS/7.0</strong>.</p>
+<a class="last reference internal image-reference" href="../../_images/lab2_verify.png"><img alt="../../_images/lab2_verify.png" src="../../_images/lab2_verify.png" style="width: 800px;" /></a>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p>Basic Hint
+<a class="reference external" href="../../class1/module1/irules/lab3irule_0.html">if you need a hint here is some example code:</a></p>
+<p>Link to DevCentral: <a class="reference external" href="https://clouddocs.f5.com/api/irules/HTTP__redirect.html">https://clouddocs.f5.com/api/irules/HTTP__redirect.html</a></p>
+<p>If you are really stuck, here is what we are looking for:</p>
+<ol class="last arabic simple">
+<li><a class="reference external" href="../../class1/module1/irules/lab3irule_1.html">When HTTP_Request comes in</a></li>
+<li><a class="reference external" href="../../class1/module1/irules/lab3irule_2.html">Redirect from HTTP to HTTPS</a></li>
+<li><a class="reference external" href="../../class1/module1/irules/lab3irule_99.html">Now you should have enough to understand and the majority of code to create the iRule.  If not here is the complete iRule.</a></li>
+</ol>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="lab2.html" title="2.1.1.2. Lab 2 - Log and Change Headers (EXAMPLE)" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
