@@ -14,29 +14,55 @@ Lab Topology
 
 The following components have been included in your lab environment:
 
-- 2 x F5 BIG-IP VE (v12.1)
-- 1 x F5 iWorkflow VE (v2.1)
-- 1 x Linux LAMP Webserver (xubuntu 14.04)
-- 1 x Windows Jumphost
+- 2 x BIG-IP virtual appliances (15.0.x)
+- 1 Ubuntu client server running:
 
-Lab Components
-^^^^^^^^^^^^^^
+  - vscode
+
+  - firefox
+
+- 1 Ubuntu application server running:
+
+  - NGINX Demo App (App port 8080)
+
+  - OWASP Juice Shop (App port 3000)
+
+
+Network Addressing
+^^^^^^^^^^^^^^^^^^
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
 
 .. list-table::
-    :widths: 20 40 40
+    :widths: 20 20 20 20 20
     :header-rows: 1
-    :stub-columns: 1
+    :stub-columns: 0
 
     * - **Component**
-      - **VLAN/IP Address(es)**
-      - **Credentials**
-    * - Sample Host
-      - - **Management:** 10.1.1.250
-        - **Internal:** 10.1.10.250
-        - **External:** 10.1.20.250
-      - ``admin``/``admin``
+      - **Management**
+      - **Internal**
+      - **External**
+      - **Additional IP**
+    * - Client Server
+      - 10.1.1.4
+      - 10.1.10.4
+      - 10.1.20.4
+      - none
+    * - App Server
+      - 10.1.1.5
+      - 10.1.10.5
+      - none
+      - 10.1.10.10
+    * - BIG-IP1
+      - 10.1.1.6
+      - 10.1.10.6
+      - 10.1.20.6
+      - 10.1.20.20
+    * - BIG-IP2
+      - 10.1.1.7
+      - 10.1.10.7
+      - 10.1.20.7
+      - 10.1.20.10
 
 
