@@ -1,88 +1,147 @@
-Lab 1 - Create an iRule that Parses the URI to Route Traffic (EXAMPLE)
-######################################################################
+BIG-IP Infrastructure Onboarding
+################################
 
+In this section you will configure basic network configurations like NTP, DNS, and interface IP addresses.
 
-Creating your first HTTP iRule that routes traffic based upon the value of the Host name.
------------------------------------------------------------------------------------------
+#. Confirm BIG-IP is not configured with basic network configurations.
 
-The goal of this lab is to route incoming HTTP requests to a specfic pool based on the incoming http host name.
+   - Explore BIG-IP GUI **Network SelfIP** and **Vlan** settings and validate they are not configured
 
-Please create an iRule that will route traffic based on the following table:
+   .. image:: /_static/selfip0.png
+       :height: 150px
 
-.. list-table::
-    :widths: 40 40
-    :header-rows: 1
+   .. image:: /_static/vlan0.png
+       :height: 150px
 
-    * - **Host Name**
-      - **Pool Name**
-    * - **dvwa.f5lab.com**
-      - **dvwa_pool_http**
-    * - **peruggia.f5lab.com**
-      - **peruggia_http_pool**
-    * - **wackopicko.f5lab.com**
-      - **wackopicko_http_pool**
+#. Create **main.tf** to use the `[Terraform Provider for F5 BIG-IP] <https://registry.terraform.io/providers/F5Networks/bigip/latest/docs>`__
 
-.. important::
-   - Estimated completion time: 10 minutes
+   - Open client server **vscode terminal**
+   - ``mkdir ~/projects/lab1``
+   - ``cd ~/projects/lab1``
+   - ``touch main.tf``
+   - use vscode to add the following code to **main.tf**
 
-#. Open Chrome Browser
-#. Enter https://bigip1 into the address bar and hit Enter
+   .. code:: json
 
-   .. image:: ../images/bigip_login.png
-      :width: 800
+     terraform {
+     required_providers {
+       bigip = {
+         source = "F5Networks/bigip"
+         version = "1.3.1"
+       }
+     }
+     }
 
-#. Login with **username**: **admin** 
-              **password**: **admin.F5demo.com**
-#. Click Local Traffic -> iRules  -> iRules List
-#. Click **Create** button
+     provider "bigip" {
+       address = "10.1.1.6"
+       username = "admin"
+       password = "F5d3vops$"
+     }
 
-   .. image:: ../images/irule_create.png
-      :width: 800
+     resource "bigip_command" "showversion" {
+       commands   = ["show sys version"]
+     }
 
-#. Enter Name of **URI_Routing_iRule**
-#. Enter your code
-#. Click **Finished**
-#. Click Local Traffic -> Virtual Servers -> Virtual Server List
-#. Click on **http_irules_vip**
+     output "showversion" {
+       value = "${bigip_command.showversion.command_result}"
+     }
 
-   .. image:: ../images/select_vs.png
-      :width: 800
+   .. image:: /_static/maintf.png
+       :height: 300px
 
-#. Click on the **Resources tab**
-#. Click **Manage** button for the iRules section
+#. Test terraform connectivity to bigip
 
-   .. image:: ../images/resources.png
-      :width: 800
+   - ``terraform  init``
 
-#. Click on **URI_Routing_iRule** from the Available box and click the << button, thus moving it to the Enabled box.
+   .. image:: /_static/tinit.png
+       :height: 300px
 
-   .. image:: ../images/lab1-irules-add.png
-      :width: 800
+   .. NOTE::
+      The `terraform init <https://www.terraform.io/docs/commands/init.html>`__ command is used to initialize a working directory containing Terraform configuration files. This is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. It is safe to run this command multiple times.
 
-#. Click the **Finished** button
-#. Open a new tab in Chrome
-#. Enter http://dvwa.f5lab.com/ and ensure you get there
-#. Now enter http://peruggia.f5lab.com/ and ensure you get to the app
-#. Finally, enter http://wackopicko.f5lab.com/  and ensure you can get to that app
+   - ``terraform plan``
 
-   .. image:: ../images/test_sites.png
-      :width: 800
+   .. image:: /_static/tplan.png
+       :height: 300px
 
-#. If you see this image below - it means your iRule did not work.
+   .. NOTE::
+      The `terraform plan <https://www.terraform.io/docs/commands/plan.html>`__ command is used to create an execution plan. Terraform performs a refresh, unless explicitly disabled, and then determines what actions are necessary to achieve the desired state specified in the configuration files.
+   
+   - ``terraform apply``
 
-   .. image:: ../images/it_works.png
-      :width: 800
+   .. image:: /_static/tapply.png
+       :height: 300px
 
+   - Type ``yes`` to approve action when prompted
 
-.. hint::
-   `If you need a basic hint here is some example code: <../../class1/module1/irules/lab1irule_0.html>`__
+   .. NOTE::
+      The  `terraform apply <https://www.terraform.io/docs/commands/apply.html>`__ command is used to apply the changes required to reach the desired state of the configuration, or the pre-determined set of actions generated by a terraform plan execution plan.  In addition **terraform.tfstate** file is created by Terraform to map real world resources to your configuration, keep track of metadata, and to improve performance for large infrastructures.
 
-   Here is a link to DevCentral: https://clouddocs.f5.com/api/irules/HTTP__host.html
+#. Create **f5base.tf** to configure base bigip network (NTP, DNS, VLANS and SELFIPs)
 
-   If you are really stuck, here is what we are looking for:
+   - ``touch f5base.tf``
+   - use **vscode** to add the following code to **f5base.tf**
 
-   #. `When HTTP_Request comes in <../../class1/module1/irules/lab1irule_1.html>`__
-   #. `Evaluate the HTTP_host name  <../../class1/module1/irules/lab1irule_2.html>`__
-   #. `If it matches send it to the correct pool. <../../class1/module1/irules/lab1irule_3.html>`__
-   #. `Loop through all the host names you want to match on and continue to direct to the correct pools. <../../class1/module1/irules/lab1irule_4.html>`__
-   #. `Now you should have enough to understand and the majority of code needed to create the iRule.  If not here is the complete iRule. <../../class1/module1/irules/lab1irule_99.html>`__
+   .. code:: json
+   
+      resource "bigip_sys_ntp" "ntp1" {
+        description = "/Common/NTP1"
+        servers = ["time.google.com"]
+        timezone = "America/Los_Angeles"
+      }
+
+      resource "bigip_sys_dns" "dns1" {
+        description = "/Common/DNS1"
+        name_servers = ["8.8.8.8"]
+        number_of_dots = 2
+        search = ["f5.com"]
+      }
+
+      resource "bigip_net_vlan" "vlan1" {
+        name = "/Common/internal"
+        interfaces {
+          vlanport = 1.1
+          tagged = false
+        }
+      }
+
+      resource "bigip_net_vlan" "vlan2" {
+        name = "/Common/external"
+        interfaces {
+          vlanport = 1.2
+          tagged = false
+        }
+      }
+
+      resource "bigip_net_selfip" "selfip1" {
+         name = "/Common/internalselfIP"
+         ip = "10.1.10.6/24"
+         vlan = "/Common/internal"
+         depends_on = [bigip_net_vlan.vlan1]
+      }
+
+      resource "bigip_net_selfip" "selfip2" {
+         name = "/Common/externalselfIP"
+         ip = "10.1.20.6/24"
+         vlan = "/Common/external"
+         depends_on = [bigip_net_vlan.vlan2]
+      }
+
+   - ``terraform plan``
+   - ``terraform apply``
+
+   .. image:: /_static/f5base.png
+       :height: 300px
+
+   .. NOTE::
+      The  **bigip terraform provider** contains native resources to help facilitate provisioning services on BIG-IPs.  For example `bigip_sys_ntp <https://registry.terraform.io/providers/F5Networks/bigip/latest/docs/resources/bigip_sys_ntp>`__ resource is helpful when configuring NTP server on the BIG-IP.
+
+#. Confirm BIG-IP is now configured
+
+   - Explore BIG-IP GUI **Network -> SelfIP and Vlan** and validate network settings are now configured
+
+   .. image:: /_static/selfip.png
+       :height: 150px
+
+   .. image:: /_static/vlan.png
+       :height: 150px
