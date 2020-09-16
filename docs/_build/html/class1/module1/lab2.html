@@ -14,7 +14,7 @@
   <meta name="title" content="Lab 2 - Log and Change Headers (EXAMPLE)"/>
   <meta name="product" content="F5 and Hashicorp Basics"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-09-16 08:50:09"/>
+  <meta name="updated_date"  content="2020-09-16 08:55:00"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -157,7 +157,7 @@
 <li><p class="first">Open Chrome Browser</p>
 </li>
 <li><p class="first">Enter <a class="reference external" href="https://bigip1">https://bigip1</a> into the address bar and hit Enter</p>
-<a class="reference internal image-reference" href="../../_images/bigip_login.png"><img alt="../../_images/bigip_login.png" src="../../_images/bigip_login.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="class1/module1/../images/bigip_login.png"><img alt="class1/module1/../images/bigip_login.png" src="class1/module1/../images/bigip_login.png" style="width: 800px;" /></a>
 </li>
 <li><dl class="first docutils">
 <dt>Login with <strong>username</strong>: <strong>admin</strong></dt>
@@ -168,7 +168,7 @@
 <li><p class="first">Click Local Traffic -&gt; iRules  -&gt; iRules List</p>
 </li>
 <li><p class="first">Click <strong>Create</strong> button</p>
-<a class="reference internal image-reference" href="../../_images/irule_create.png"><img alt="../../_images/irule_create.png" src="../../_images/irule_create.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="class1/module1/../images/irule_create.png"><img alt="class1/module1/../images/irule_create.png" src="class1/module1/../images/irule_create.png" style="width: 800px;" /></a>
 </li>
 <li><p class="first">Enter Name of <strong>Header_Log_Strip_iRule</strong></p>
 </li>
@@ -179,15 +179,15 @@
 <li><p class="first">Click Local Traffic -&gt; Virtual Servers -&gt; Virtual Server List</p>
 </li>
 <li><p class="first">Click on <strong>http_irules_vip</strong></p>
-<a class="reference internal image-reference" href="../../_images/select_vs.png"><img alt="../../_images/select_vs.png" src="../../_images/select_vs.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="class1/module1/../images/select_vs.png"><img alt="class1/module1/../images/select_vs.png" src="class1/module1/../images/select_vs.png" style="width: 800px;" /></a>
 </li>
 <li><p class="first">Click on the <strong>Resources</strong> tab</p>
 </li>
 <li><p class="first">Click <strong>Manage</strong> button for the iRules section</p>
-<a class="reference internal image-reference" href="../../_images/resources.png"><img alt="../../_images/resources.png" src="../../_images/resources.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="class1/module1/../images/resources.png"><img alt="class1/module1/../images/resources.png" src="class1/module1/../images/resources.png" style="width: 800px;" /></a>
 </li>
 <li><p class="first">Click on Header_Log_Strip_iRule from the Available box and click the &lt;&lt; button, thus moving it to the Enabled box, your first and now second iRule should be in the Enabled box.</p>
-<a class="reference internal image-reference" href="../../_images/lab2-irules-add.png"><img alt="../../_images/lab2-irules-add.png" src="../../_images/lab2-irules-add.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="class1/module1/../images/lab2-irules-add.png"><img alt="class1/module1/../images/lab2-irules-add.png" src="class1/module1/../images/lab2-irules-add.png" style="width: 800px;" /></a>
 </li>
 <li><p class="first">Click the <strong>Finished</strong> button</p>
 </li>
@@ -196,7 +196,7 @@
 <li><p class="first">Click the 3 horizontal line button on the far right of the address bar</p>
 </li>
 <li><p class="first">Use <strong>developer tools</strong> in Mozilla, or use Chrome to view headers</p>
-<a class="reference internal image-reference" href="../../_images/firefox_developer.png"><img alt="../../_images/firefox_developer.png" src="../../_images/firefox_developer.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="class1/module1/../images/firefox_developer.png"><img alt="class1/module1/../images/firefox_developer.png" src="class1/module1/../images/firefox_developer.png" style="width: 600px;" /></a>
 </li>
 <li><p class="first">Enter <a class="reference external" href="http://dvwa.f5lab.com/">http://dvwa.f5lab.com/</a>  and ensure you get there</p>
 </li>
@@ -205,13 +205,13 @@
 <li><p class="first">Finally, enter <a class="reference external" href="http://peruggia.f5lab.com/">http://peruggia.f5lab.com/</a> and ensure you can get to that app</p>
 </li>
 <li><p class="first">Look at the headers for each of your requests. Did you log them all? What is the value of the Server header?</p>
-<a class="reference internal image-reference" href="../../_images/lab2_verify-remove.png"><img alt="../../_images/lab2_verify-remove.png" src="../../_images/lab2_verify-remove.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="class1/module1/../images/lab2_verify-remove.png"><img alt="class1/module1/../images/lab2_verify-remove.png" src="class1/module1/../images/lab2_verify-remove.png" style="width: 800px;" /></a>
 </li>
 </ol>
 <div class="admonition attention">
 <p class="first admonition-title">Attention</p>
 <p>OPTIONAL:  Instead of removing the <strong>Server</strong> header in the response, change the value of the <strong>Server</strong> header to <strong>Microsoft-IIS/7.0</strong>.</p>
-<a class="last reference internal image-reference" href="../../_images/lab2_verify.png"><img alt="../../_images/lab2_verify.png" src="../../_images/lab2_verify.png" style="width: 800px;" /></a>
+<a class="last reference internal image-reference" href="class1/module1/../images/lab2_verify.png"><img alt="class1/module1/../images/lab2_verify.png" src="class1/module1/../images/lab2_verify.png" style="width: 800px;" /></a>
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
